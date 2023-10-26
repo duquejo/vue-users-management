@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import Icon from '../../Atoms/Icon/Icon.vue';
+import Icon from '../../atoms/Icon/Icon.vue';
 import { ref } from 'vue';
 
 const props = defineProps({

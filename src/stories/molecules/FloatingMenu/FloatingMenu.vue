@@ -9,7 +9,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import Icon from '../../Atoms/Icon/Icon.vue';
+import Icon from '../../atoms/Icon/Icon.vue';
 
 const emit = defineEmits(['toggleSidebar']);
 

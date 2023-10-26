@@ -16,7 +16,7 @@
 <script setup>
 import { ref } from 'vue';
 import SidebarComponent from '../../molecules/Sidebar/Sidebar.vue';
-import UpperNav from '../../Atoms/UpperNav/UpperNav.vue';
+import UpperNav from '../../atoms/UpperNav/UpperNav.vue';
 import FloatingMenu from '../../molecules/FloatingMenu/FloatingMenu.vue';
 
 const isSidebarOpen = ref(false);

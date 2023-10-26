@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import Icon from '../../Atoms/Icon/Icon.vue';
+import Icon from '../../atoms/Icon/Icon.vue';
 
 defineProps({
   icon: {

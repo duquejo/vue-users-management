@@ -38,10 +38,10 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import List from '../../Atoms/List/List.vue';
+import List from '../../atoms/List/List.vue';
 import Search from '../../molecules/Search/Search.vue';
-import Pagination from '../../Atoms/Pagination/Pagination.vue';
-import Button from '../../Atoms/Button/Button.vue';
+import Pagination from '../../atoms/Pagination/Pagination.vue';
+import Button from '../../atoms/Button/Button.vue';
 
 const selectedUsers = ref([]);
 const searchFilter = ref('');
