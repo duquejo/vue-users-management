@@ -1,0 +1,60 @@
+import { Meta, Canvas } from '@storybook/blocks';
+
+<Meta title="General Styles" />
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # General styles
+
+    Because Storybook works separately from your app, you'll need to configure it for your specific stack and setup. Below, explore guides for configuring Storybook with popular frameworks and tools. If you get stuck, learn how you can ask for help from our community.
+
+  </div>
+
+  <div className="sb-container">
+
+    <div className="sb-section-title">
+      ## Titles
+
+      Below, explore guides for configuring Storybook with popular frameworks and tools.
+    </div>
+
+    <div className="sb-section">
+      <div className="sb-unstyled">
+        <h1>h1 - A mighty text</h1>
+        <h2>h2 - A mighty text</h2>
+        <h3>h3 - A mighty text</h3>
+        <h4>h4 - A mighty text</h4>
+        <h5>h5 - A mighty text</h5>
+      </div>
+    </div>
+
+    <div className="sb-section-title">
+      ## Paragraph
+
+      Below, explore guides for configuring Storybook with popular frameworks and tools.
+    </div>
+
+    <div className="sb-section sb-unstyled">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, perspiciatis, quaerat enim voluptates labore aut aperiam culpa praesentium facilis voluptatibus repellat, tenetur necessitatibus ducimus a recusandae nisi sapiente fugiat. Iste eum nostrum ipsum necessitatibus impedit consequatur ab nisi eius aperiam corporis quod dolorem dolores perferendis, veritatis quaerat aliquid atque harum.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  {`
+  .sb-container {
+    margin-bottom: 48px;
+  }
+
+  .sb-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .sb-section-title {
+    margin-bottom: 32px;
+  }
+  `}
+</style>
