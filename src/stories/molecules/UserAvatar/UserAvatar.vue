@@ -6,8 +6,8 @@
 </template>
 
 <script setup>
-import Avatar from '../../Atoms/Avatar/Avatar.vue';
-import Button from '../../Atoms/Button/Button.vue';
+import Avatar from '../../atoms/Avatar/Avatar.vue';
+import Button from '../../atoms/Button/Button.vue';
 </script>
 
 <style lang="postcss" scoped>

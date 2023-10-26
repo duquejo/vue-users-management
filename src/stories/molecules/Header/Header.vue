@@ -48,7 +48,7 @@
 </template>
 
 <script setup>
-import Button from '../../Atoms/Button/Button.vue';
+import Button from '../../atoms/Button/Button.vue';
 
 const props = defineProps({
   user: Object,

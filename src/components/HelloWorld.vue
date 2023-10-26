@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import Button from '../stories/Atoms/Button/Button.vue';
+import Button from '../stories/atoms/Button/Button.vue';
 
 defineProps({
   msg: String,

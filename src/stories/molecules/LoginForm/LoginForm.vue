@@ -98,8 +98,8 @@
 </template>
 
 <script setup>
-import Button from '../../Atoms/Button/Button.vue';
-import { reactive, ref } from 'vue';
+import Button from '../../atoms/Button/Button.vue';
+import { ref } from 'vue';
 
 const props = defineProps({
   registerLink: {

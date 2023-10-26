@@ -19,7 +19,7 @@
 <script setup>
 import { computed } from 'vue';
 import MenuLink from '../MenuLink/MenuLink.vue';
-import MenuAvatar from '../../Atoms/MenuAvatar/MenuAvatar.vue';
+import MenuAvatar from '../../atoms/MenuAvatar/MenuAvatar.vue';
 
 const props = defineProps({
   user: Object,
