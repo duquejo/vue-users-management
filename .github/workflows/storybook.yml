@@ -21,3 +21,6 @@ jobs:
         with:
           branch: gh-pages
           folder: storybook-static # output folder from `npm run build-storybook`
+          clean: true
+          clean-exclude: |
+            .nojekyll
