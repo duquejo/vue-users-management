@@ -5,6 +5,9 @@ export default {
   title: 'Components/Atoms/List',
   component: ListComponent,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export const List = {

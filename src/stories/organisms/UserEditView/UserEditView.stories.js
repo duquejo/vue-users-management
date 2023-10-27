@@ -1,16 +1,16 @@
-import UserEditPageComponent from './UserEditPage.vue';
+import UserEditViewComponent from './UserEditView.vue';
 
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 export default {
-  title: 'Components/Organisms/Single User Page',
-  component: UserEditPageComponent,
+  title: 'Components/Organisms/Single User View',
+  component: UserEditViewComponent,
   tags: ['autodocs'],
   argTypes: {
     onFormSubmit: {},
   },
   render: (args) => ({
     components: {
-      UserEditPageComponent,
+      UserEditViewComponent,
     },
     setup() {
       return {
@@ -18,15 +18,15 @@ export default {
       };
     },
     template: `
-      <user-edit-page-component 
+      <user-edit-view-component 
         @on-form-submit="onFormSubmit"
       />`,
   }),
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
   },
 };
 
-export const UserEditPage = {
+export const UserEditView = {
   args: {},
 };

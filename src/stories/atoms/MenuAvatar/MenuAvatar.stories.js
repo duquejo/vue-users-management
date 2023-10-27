@@ -5,6 +5,9 @@ export default {
   title: 'Components/Atoms/Menu avatar',
   component: MenuAvatarComponent,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export const MenuAvatar = {

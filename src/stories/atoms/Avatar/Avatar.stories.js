@@ -5,6 +5,9 @@ export default {
   title: 'Components/Atoms/Avatar',
   component: AvatarComponent,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export const Avatar = {

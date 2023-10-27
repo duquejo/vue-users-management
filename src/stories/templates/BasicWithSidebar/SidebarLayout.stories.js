@@ -1,7 +1,7 @@
 import SidebarLayoutComponent from './SidebarLayout.vue';
-import Page from '../../organisms/Page/Page.vue';
-import UsersPage from '../../organisms/UsersPage/UsersPage.vue';
-import UserEditPage from '../../organisms/UserEditPage/UserEditPage.vue';
+import View from '../../organisms/View/View.vue';
+import UsersView from '../../organisms/UsersView/UsersView.vue';
+import UserEditView from '../../organisms/UserEditView/UserEditView.vue';
 
 export default {
   title: 'Components/Templates/Basic with sidebar',
@@ -12,11 +12,11 @@ export default {
   },
 };
 
-export const PageWithSidebar = {
+export const ViewWithSidebar = {
   render: (args) => ({
     components: {
       SidebarLayoutComponent,
-      Page,
+      View,
     },
     setup() {
       return {
@@ -24,7 +24,7 @@ export const PageWithSidebar = {
       };
     },
     template: `
-      <sidebar-layout-component><Page /></sidebar-layout-component>`,
+      <sidebar-layout-component><View /></sidebar-layout-component>`,
   }),
 };
 
@@ -32,7 +32,7 @@ export const UsersWithSidebar = {
   render: (args) => ({
     components: {
       SidebarLayoutComponent,
-      UsersPage,
+      UsersView,
     },
     setup() {
       return {
@@ -40,7 +40,7 @@ export const UsersWithSidebar = {
       };
     },
     template: `
-      <sidebar-layout-component><UsersPage /></sidebar-layout-component>`,
+      <sidebar-layout-component><UsersView /></sidebar-layout-component>`,
   }),
 };
 
@@ -48,7 +48,7 @@ export const EditUsersWithSidebar = {
   render: (args) => ({
     components: {
       SidebarLayoutComponent,
-      UserEditPage,
+      UserEditView,
     },
     setup() {
       return {
@@ -56,7 +56,7 @@ export const EditUsersWithSidebar = {
       };
     },
     template: `
-      <sidebar-layout-component><UserEditPage /></sidebar-layout-component>`,
+      <sidebar-layout-component><UserEditView /></sidebar-layout-component>`,
   }),
 };
 

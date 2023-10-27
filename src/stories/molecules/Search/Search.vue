@@ -4,7 +4,7 @@
     <input
       :value="properties.input"
       @input="onInputChange"
-      placeholder="Josh Nichols, Faye Valentine.."
+      placeholder="Josh Nicholls, Faye Vale..."
     />
     <Icon
       size="medium"

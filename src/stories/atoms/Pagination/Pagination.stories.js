@@ -5,6 +5,9 @@ export default {
   title: 'Components/Atoms/Pagination',
   component: PaginationComponent,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export const Pagination = {

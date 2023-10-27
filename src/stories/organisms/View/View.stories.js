@@ -1,17 +1,17 @@
 // import { within, userEvent } from '@storybook/testing-library';
-import Page from './Page.vue';
+import View from './View.vue';
 
 export default {
-  title: 'Components/Organisms/Page',
-  component: Page,
+  title: 'Components/Organisms/View',
+  component: View,
   tags: ['autodocs'],
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/vue/configure/story-layout
-    layout: 'fullscreen',
+    layout: 'centered',
   },
 };
 
-export const GeneralPage = {};
+export const GeneralView = {};
 
 // export const LoggedOut = {};
 
@@ -19,9 +19,9 @@ export const GeneralPage = {};
 // export const LoggedIn = {
 //   render: () => ({
 //     components: {
-//       Page,
+//       View,
 //     },
-//     template: '<Page />',
+//     template: '<View />',
 //   }),
 //   play: async ({ canvasElement }) => {
 //     const canvas = within(canvasElement);
