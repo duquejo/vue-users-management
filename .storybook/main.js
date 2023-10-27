@@ -6,6 +6,9 @@ const config = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
   ],
+  core: {
+    builder: '@storybook/builder-vite',
+  },
   framework: {
     name: "@storybook/vue3-vite",
     options: {},
