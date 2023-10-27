@@ -1,8 +1,10 @@
 {
   "name": "duquejo-dashboard-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/duquejo-dashboard-lib.umd.cjs",
   "module": "./dist/duquejo-dashboard-lib.js",
   "exports": {
