@@ -1,2 +1,0 @@
-import{U as p}from"./UpperNav-244c728a.js";import"./vue.esm-bundler-acf2fe5c.js";import"./Icon-ad11ab3f.js";import"./_plugin-vue_export-helper-c27b6911.js";const c={title:"Components/Atoms/Upper navigation",component:p,tags:["autodocs"]},o={};var r,e,t;o.parameters={...o.parameters,docs:{...(r=o.parameters)==null?void 0:r.docs,source:{originalSource:"{}",...(t=(e=o.parameters)==null?void 0:e.docs)==null?void 0:t.source}}};const i=["UpperNav"];export{o as UpperNav,i as __namedExportsOrder,c as default};
-//# sourceMappingURL=UpperNav.stories-d9722081.js.map
