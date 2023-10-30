@@ -97,7 +97,7 @@ const usersContainerClasses = computed(() => ({
 .users-container {
   @apply flex flex-col md:pb-0;
   &__actions {
-    @apply flex flex-col md:flex-row md:justify-between gap-y-3 md:gap-y-6 md:mb-2 md:relative fixed bottom-0 left-0 right-0 md:bg-transparent bg-secondary-100 px-5 py-4 md:pb-0 md:px-0;
+    @apply flex flex-col md:flex-row md:justify-between gap-y-3 md:gap-y-6 md:mb-2 md:relative fixed bottom-0 left-0 right-0 md:bg-transparent bg-secondary-100 dark:bg-secondary-950 px-5 py-4 md:pb-0 md:px-0;
     &-manage {
       @apply space-y-2 md:space-x-2 md:space-y-0;
       button {
