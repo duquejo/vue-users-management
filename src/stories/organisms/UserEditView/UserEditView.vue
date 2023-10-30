@@ -5,63 +5,63 @@
         <div class="grid-content__user-details">
           <div>
             <h5>Personal details</h5>
-            <UserAvatar class="m-auto" />
+            <UserAvatar class="m-auto mb-4 md:mb-auto" :url="avatar?.url" :alt="avatar?.alt" />
           </div>
-          <div>
+          <div v-if="user.name || user.gender || user.nationality || user.birthday">
             <ul>
-              <li>
+              <li v-if="user.name">
                 <h6>Name</h6>
-                <p>John Doe</p>
+                <p>{{ user.name }}</p>
               </li>
-              <li>
+              <li v-if="user.gender">
                 <h6>Gender</h6>
-                <p>Male</p>
+                <p>{{ user.gender }}</p>
               </li>
-              <li>
+              <li v-if="user.nationality">
                 <h6>Nationality</h6>
-                <p>Colombia</p>
+                <p>{{ user.nationality }}</p>
               </li>
-              <li>
+              <li v-if="user.birthday">
                 <h6>Birth date</h6>
-                <p>1990/10/01</p>
+                <p>{{ user.birthday }}</p>
               </li>
             </ul>
           </div>
-          <div>
+          <div v-if="user.address || user.city || user.state || user.country">
             <h5>Address</h5>
             <ul>
-              <li>
+              <li v-if="user.address">
                 <h6>Address line</h6>
-                <p>No 35 Jimmy Street</p>
+                <p>{{ user.address }}</p>
               </li>
-              <li>
+              <li v-if="user.city">
                 <h6>City</h6>
-                <p>Antioquia</p>
+                <p>{{ user.city }}</p>
               </li>
-              <li>
+              <li v-if="user.state">
                 <h6>State</h6>
-                <p>Bello</p>
+                <p>{{ user.state }}</p>
               </li>
-              <li>
+              <li v-if="user.country">
                 <h6>Country</h6>
-                <p>Colombia</p>
+                <p>{{ user.country }}</p>
               </li>
             </ul>
           </div>
-          <div>
+          <div v-if="user.email || user.phone_number || user.role">
             <h5>Contact info</h5>
             <ul>
-              <li>
-                <h6>Phone number</h6>
-                <p>573101231212</p>
-              </li>
-              <li>
+              <li v-if="user.email">
                 <h6>Email</h6>
-                <p>foo@bar.com</p>
+                <p>{{ user.email }}</p>
               </li>
-              <li>
+              <li v-if="user.phone_number">
+                <h6>Phone number</h6>
+                <p>{{ user.phone_number }}</p>
+              </li>
+              <li v-if="user.role">
                 <h6>Role</h6>
-                <p>User</p>
+                <p>{{ user.role }}</p>
               </li>
             </ul>
           </div>
@@ -69,17 +69,7 @@
         <div class="grid-content__user-description">
           <div>
             <h5>Profile Description</h5>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              <br />
-              <br />
-              Corporis et libero dicta vero, eveniet ad, dolores fuga impedit
-              repudiandae, aspernatur deserunt placeat? Quos inventore voluptate
-              pariatur iusto, aspernatur consequatur ea reiciendis, voluptas
-              quisquam iste enim doloribus alias rem quam sequi nam dignissimos
-              repellat ullam! Soluta numquam dolores rerum illo earum harum maxime
-              aliquam magni est eaque fuga dicta ipsam in cumque atque,
-            </p>
+            <p>{{ user.description || 'No description added' }}</p>
           </div>
           <div class="grid-content__user-description__buttons">
             <Button label="Save" primary size="large" />
@@ -94,6 +84,13 @@
 <script setup>
 import Button from '../../atoms/Button/Button.vue';
 import UserAvatar from '../../molecules/UserAvatar/UserAvatar.vue';
+
+defineProps({
+  user: {
+    type: Object,
+    required: true,
+  }
+});
 </script>
 
 <style lang="postcss" scoped>
@@ -110,6 +107,9 @@ import UserAvatar from '../../molecules/UserAvatar/UserAvatar.vue';
           }
           p {
             @apply leading-none text-sm mt-0;
+          }
+          &:last-child {
+            @apply mb-3 md:mb-auto;
           }
         }
         &:only-child {

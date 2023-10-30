@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <Avatar class="shadow-xl" src="https://picsum.photos/400/600" alt="My avatar"/>
+    <Avatar class="shadow-xl" :src="url" :alt="alt"/>
     <Button :primary="false" label="Edit avatar"/>
   </div>
 </template>
@@ -8,6 +8,14 @@
 <script setup>
 import Avatar from '../../atoms/Avatar/Avatar.vue';
 import Button from '../../atoms/Button/Button.vue';
+
+defineProps({
+  url: {
+    type: String,
+    default: 'https://picsum.photos/300/500',
+  },
+  alt: String,
+});
 </script>
 
 <style lang="postcss" scoped>

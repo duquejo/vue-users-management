@@ -1,17 +1,14 @@
 <template>
-  <div :class="sidebarClasses">
+  <div v-if="user" :class="sidebarClasses">
     <div class="sidebar-container__dashboard">
       <MenuAvatar :just-avatar="! isOpen" :user="user" />
-      <ul class="sidebar-container__dashboard-items">
-        <MenuLink icon="dashboard" label="Dashboard" href="#" />
-        <MenuLink icon="chat" label="Chats" href="#" />
-        <MenuLink icon="photo" label="Media" href="#" />
-        <MenuLink icon="heart" label="Donate ☕" href="#" />
+      <ul v-if="links.length > 0" class="sidebar-container__dashboard-items">
+        <MenuLink v-for="link in links" :key="link.icon" :icon="link.icon" :label="link.label" :href="link.href" />
       </ul>
     </div>
     <div class="sidebar-container__account">
-      <MenuLink icon="account" label="Account" href="#" />
-      <MenuLink icon="logout" label="Logout" href="#" />
+      <MenuLink icon="account" label="Account" :href="user.profileUrl" />
+      <MenuLink icon="logout" label="Logout" :href="user.logoutUrl" />
     </div>
   </div>
 </template>
@@ -22,8 +19,15 @@ import MenuLink from '../MenuLink/MenuLink.vue';
 import MenuAvatar from '../../atoms/MenuAvatar/MenuAvatar.vue';
 
 const props = defineProps({
-  user: Object,
+  user: {
+    type: Object,
+    required: true,
+  },
   isOpen: Boolean,
+  links: {
+    type: Array,
+    required: true,
+  },
 });
 
 const sidebarClasses = computed(() => ({
