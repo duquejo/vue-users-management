@@ -6,6 +6,42 @@ import UserEditView from '../../organisms/UserEditView/UserEditView.vue';
 export default {
   title: 'Components/Templates/Basic with sidebar',
   component: SidebarLayoutComponent,
+  args: {
+    user: {
+      name: 'John Doe',
+      role: 'Editor',
+      avatarUrl: 'https://placehold.co/100x100',
+      profileUrl: '/profile',
+      logoutUrl: '/logout',
+    },
+    isSidebarOpen: true,
+    links: [
+      {
+        order: 1,
+        label: 'Dashboard',
+        href: '#',
+        icon: 'dashboard',
+      },
+      {
+        order: 2,
+        label: 'Chats',
+        href: '#',
+        icon: 'chat',
+      },
+      {
+        order: 3,
+        label: 'Media',
+        href: '#',
+        icon: 'photo',
+      },
+      {
+        order: 4,
+        label: 'Donate ☕',
+        href: '#',
+        icon: 'heart',
+      },
+    ]
+  },
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/vue/configure/story-layout
     layout: 'fullscreen',
@@ -24,7 +60,7 @@ export const ViewWithSidebar = {
       };
     },
     template: `
-      <sidebar-layout-component><View /></sidebar-layout-component>`,
+      <sidebar-layout-component :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><View /></sidebar-layout-component>`,
   }),
 };
 
@@ -40,7 +76,7 @@ export const UsersWithSidebar = {
       };
     },
     template: `
-      <sidebar-layout-component><UsersView /></sidebar-layout-component>`,
+      <sidebar-layout-component :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><UsersView /></sidebar-layout-component>`,
   }),
 };
 
@@ -56,7 +92,7 @@ export const EditUsersWithSidebar = {
       };
     },
     template: `
-      <sidebar-layout-component><UserEditView /></sidebar-layout-component>`,
+      <sidebar-layout-component :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><UserEditView /></sidebar-layout-component>`,
   }),
 };
 

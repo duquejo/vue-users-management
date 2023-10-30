@@ -13,7 +13,11 @@ export default {
 export const MenuAvatar = {
   args: {
     class: '',
-    user: {},
+    user: {
+      name: 'John Doe',
+      role: 'Site admin',
+      avatarUrl: 'https://placehold.co/100x100',
+    },
     justAvatar: true,
   },
 };

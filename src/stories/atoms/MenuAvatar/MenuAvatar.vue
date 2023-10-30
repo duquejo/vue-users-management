@@ -1,7 +1,7 @@
 <template>
   <div :class="avatarContainerClasses">
     <div class="avatar-container__image relative">
-      <img class="rounded-full" src="https://placehold.co/100x100" alt="User" />
+      <img class="rounded-full" :src="user.avatarUrl" alt="User" />
       <span class="absolute top-1 right-1 flex h-3 w-3" title="Online">
         <span
           class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
@@ -12,8 +12,8 @@
       </span>
     </div>
     <template v-if="justAvatar">
-      <h4 class="mt-2 dark:text-secondary-300">John Doe</h4>
-      <h6 class="dark:text-secondary-400">Site admin</h6>
+      <h4 class="mt-2 dark:text-secondary-300">{{ user.name }}</h4>
+      <h6 class="dark:text-secondary-400">{{ user.role }}</h6>
     </template>
   </div>
 </template>
@@ -23,7 +23,10 @@ import { computed } from 'vue';
 
 const props = defineProps({
   class: String,
-  user: Object,
+  user: {
+    type: Object,
+    required: true,
+  },
   justAvatar: Boolean,
 });
 

@@ -1,6 +1,6 @@
 <template>
   <main>
-    <SidebarComponent :is-open="isSidebarOpen" />
+    <SidebarComponent :links="links" :user="user" :is-open="isSidebarOpen" />
     <div class="container-outline">
       <div class="bg-white dark:bg-secondary-900 rounded-tl-2xl rounded-tr-2xl">
         <UpperNav />
@@ -19,7 +19,22 @@ import SidebarComponent from '../../molecules/Sidebar/Sidebar.vue';
 import UpperNav from '../../atoms/UpperNav/UpperNav.vue';
 import FloatingMenu from '../../molecules/FloatingMenu/FloatingMenu.vue';
 
-const isSidebarOpen = ref(false);
+const props = defineProps({
+  user: {
+    type: Object,
+    required: true,
+  },
+  isSidebarOpen: {
+    type: Boolean,
+    default: false,
+  },
+  links: {
+    type: Array,
+    required: true,
+  },
+});
+
+const isSidebarOpen = ref(props.isSidebarOpen);
 
 const onToggleSidebar = () => {
   isSidebarOpen.value = !isSidebarOpen.value;
