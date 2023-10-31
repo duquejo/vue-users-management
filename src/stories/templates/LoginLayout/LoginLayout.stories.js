@@ -5,6 +5,7 @@ import LoginForm from '../../molecules/LoginForm/LoginForm.vue';
 export default {
   title: 'Components/Templates/Basic without sidebar',
   component: LoginLayoutComponent,
+  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },

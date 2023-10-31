@@ -6,6 +6,7 @@ import UserEditView from '../../organisms/UserEditView/UserEditView.vue';
 export default {
   title: 'Components/Templates/Basic with sidebar',
   component: SidebarLayoutComponent,
+  tags: ['autodocs'],
   args: {
     user: {
       name: 'John Doe',
@@ -42,6 +43,9 @@ export default {
       },
     ]
   },
+  argTypes: {
+    onToggleSidebar: {}
+  },
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/vue/configure/story-layout
     layout: 'fullscreen',
@@ -60,7 +64,7 @@ export const ViewWithSidebar = {
       };
     },
     template: `
-      <sidebar-layout-component :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><View /></sidebar-layout-component>`,
+      <sidebar-layout-component @toggle-sidebar="onToggleSidebar" :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><View /></sidebar-layout-component>`,
   }),
 };
 
@@ -76,7 +80,7 @@ export const UsersWithSidebar = {
       };
     },
     template: `
-      <sidebar-layout-component :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><UsersView /></sidebar-layout-component>`,
+      <sidebar-layout-component @toggle-sidebar="onToggleSidebar" :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><UsersView /></sidebar-layout-component>`,
   }),
 };
 
@@ -92,7 +96,7 @@ export const EditUsersWithSidebar = {
       };
     },
     template: `
-      <sidebar-layout-component :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><UserEditView /></sidebar-layout-component>`,
+      <sidebar-layout-component @toggle-sidebar="onToggleSidebar" :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><UserEditView /></sidebar-layout-component>`,
   }),
 };
 

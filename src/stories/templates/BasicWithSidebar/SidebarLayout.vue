@@ -34,10 +34,13 @@ const props = defineProps({
   },
 });
 
+const emit = defineEmits(['toggleSidebar']);
+
 const isSidebarOpen = ref(props.isSidebarOpen);
 
 const onToggleSidebar = () => {
   isSidebarOpen.value = !isSidebarOpen.value;
+  emit('toggleSidebar', isSidebarOpen.value);
 };
 </script>
 
