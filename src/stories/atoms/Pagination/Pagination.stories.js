@@ -11,5 +11,33 @@ export default {
 };
 
 export const Pagination = {
-  args: {},
+  args: {
+    links: [
+      {
+        active: false,
+        label: '1',
+        url: null,
+      },
+      {
+        active: true,
+        label: '2',
+        url: '#',
+      },
+      {
+        active: false,
+        label: '3',
+        url: '#',
+      },
+      {
+        active: false,
+        label: '4',
+        url: '#',
+      },
+      {
+        active: false,
+        label: '5',
+        url: null,
+      },
+    ]
+  },
 };

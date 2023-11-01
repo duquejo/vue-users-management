@@ -29,7 +29,7 @@
           <List :users="users" @select-user="onSelectUser" />
         </div>
         <div class="users-container__pagination">
-          <Pagination class="text-right" />
+          <Pagination :links="paginationLinks"/>
         </div>
       </div>
     </section>
@@ -48,11 +48,16 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  search: {
+    type: String,
+    default: '',
+  },
+  paginationLinks: Array,
 });
 
 const users = ref(props.users);
+const searchFilter = ref(props.search);
 const selectedUsers = ref([]);
-const searchFilter = ref('');
 
 const emit = defineEmits([
   'onFormCreate',
@@ -109,7 +114,11 @@ const usersContainerClasses = computed(() => ({
     @apply overflow-x-auto;
   }
   &__pagination {
-    @apply mt-6 md:text-right text-center dark:text-secondary-800;
+    @apply mt-6 dark:text-secondary-800;
+    ul {
+      @apply md:justify-end justify-start;
+    }
+
   }
 }
 </style>
