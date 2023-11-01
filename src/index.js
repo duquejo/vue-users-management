@@ -16,9 +16,10 @@ import Search from './stories/molecules/Search/Search.vue';
 import Sidebar from './stories/molecules/Sidebar/Sidebar.vue';
 import UserAvatar from './stories/molecules/UserAvatar/UserAvatar.vue';
 
-import View from './stories/organisms/View/View.vue';
-import UserEditView from './stories/organisms/SingleUserEditView/UserEditView.vue';
+import SingleUserEditView from './stories/organisms/SingleUserEditView/SingleUserEditView.vue';
+import SingleUserView from './stories/organisms/SingleUserView/SingleUserView.vue';
 import UsersView from './stories/organisms/UsersView/UsersView.vue';
+import View from './stories/organisms/View/View.vue';
 
 import SidebarLayout from './stories/templates/BasicWithSidebar/SidebarLayout.vue';
 import LoginLayout from './stories/templates/LoginLayout/LoginLayout.vue';
@@ -31,6 +32,7 @@ export {
   MenuAvatar,
   Pagination,
   UpperNav,
+
   FloatingMenu,
   Header,
   LoginForm,
@@ -38,9 +40,12 @@ export {
   Search,
   Sidebar,
   UserAvatar,
-  View,
-  UserEditView,
+
+  SingleUserEditView,
+  SingleUserView,
   UsersView,
+  View,
+
   SidebarLayout,
   LoginLayout,
 };
