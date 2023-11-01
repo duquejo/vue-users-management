@@ -32,7 +32,7 @@ const props = defineProps({
 
 const avatarContainerClasses = computed(() => ({
   'avatar-container': true,
-  [props.class]: true,
+  [props.class]: !! props.class,
 }));
 
 </script>

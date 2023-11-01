@@ -11,7 +11,7 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['photo', 'menu', 'account', 'settings', 'chat', 'dashboard', 'heart', 'logout', 'cancel', 'chevronRight', 'search', 'chevronLeft']
+      options: ['eye', 'photo', 'menu', 'account', 'settings', 'chat', 'dashboard', 'heart', 'logout', 'cancel', 'chevronRight', 'search', 'chevronLeft']
     },
     size: {
       control: {

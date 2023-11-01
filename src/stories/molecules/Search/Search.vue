@@ -2,6 +2,7 @@
   <div class="inline-flex items-center relative text-secondary-500 dark:text-secondary-400">
     <Icon size="medium" model="search" class="absolute ml-3" />
     <input
+      ref="searchRef"
       :value="properties.input"
       @input="onInputChange"
       placeholder="Josh Nicholls, Faye Vale..."
@@ -17,7 +18,7 @@
 
 <script setup>
 import Icon from '../../atoms/Icon/Icon.vue';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const props = defineProps({
   input: {
@@ -26,10 +27,15 @@ const props = defineProps({
   },
 });
 
+const searchRef = ref(null);
 const properties = ref(props);
 const debounceTimeout = ref(null);
 
 const emit = defineEmits(['inputChange']);
+
+onMounted(() => {
+  if( searchRef ) searchRef.value.focus();
+});
 
 const onInputChange = (event) => {
   if (debounceTimeout.value) clearTimeout(debounceTimeout.value);

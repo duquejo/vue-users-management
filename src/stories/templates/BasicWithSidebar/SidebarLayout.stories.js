@@ -1,7 +1,8 @@
 import SidebarLayoutComponent from './SidebarLayout.vue';
 import View from '../../organisms/View/View.vue';
 import UsersView from '../../organisms/UsersView/UsersView.vue';
-import UserEditView from '../../organisms/UserEditView/UserEditView.vue';
+import SingleUserEditView from '../../organisms/SingleUserEditView/SingleUserEditView.vue';
+import SingleUserView from '../../organisms/SingleUserView/SingleUserView.vue';
 
 export default {
   title: 'Components/Templates/Basic with sidebar',
@@ -41,7 +42,10 @@ export default {
         href: '#',
         icon: 'heart',
       },
-    ]
+    ],
+    topNavigation: {
+      active: false,
+    }
   },
   argTypes: {
     onToggleSidebar: {}
@@ -52,7 +56,7 @@ export default {
   },
 };
 
-export const ViewWithSidebar = {
+export const SingleViewUsage = {
   render: (args) => ({
     components: {
       SidebarLayoutComponent,
@@ -64,11 +68,11 @@ export const ViewWithSidebar = {
       };
     },
     template: `
-      <sidebar-layout-component @toggle-sidebar="onToggleSidebar" :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><View /></sidebar-layout-component>`,
+      <sidebar-layout-component @toggle-sidebar="onToggleSidebar" :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links" :top-navigation="topNavigation"><View /></sidebar-layout-component>`,
   }),
 };
 
-export const UsersWithSidebar = {
+export const AllUsers = {
   render: (args) => ({
     components: {
       SidebarLayoutComponent,
@@ -84,21 +88,81 @@ export const UsersWithSidebar = {
   }),
 };
 
-export const EditUsersWithSidebar = {
+export const EditUser = {
   render: (args) => ({
     components: {
       SidebarLayoutComponent,
-      UserEditView,
+      SingleUserEditView,
     },
     setup() {
+
+      const currentUser = {
+        avatar: {
+          url: 'https://picsum.photos/400/600',
+          alt: 'Demo image',
+        },
+        name: 'John Doe',
+        gender: 'Male',
+        birthday: new Date(),
+        nationality: 'United States',
+        address: 'Mary 123 Street 4th',
+        phone_number: '+13120456789',
+        city: 'Los Angeles',
+        state: 'Los Angeles',
+        role: 'User',
+        email: 'foo@bar.com',
+        description: 'Welcome to my profile!',
+      };
+      
       return {
         ...args,
+        currentUser,
       };
     },
     template: `
-      <sidebar-layout-component @toggle-sidebar="onToggleSidebar" :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><UserEditView /></sidebar-layout-component>`,
+      <sidebar-layout-component @toggle-sidebar="onToggleSidebar" :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links">
+        <SingleUserEditView :user="currentUser"/>
+      </sidebar-layout-component>`,
   }),
 };
 
-export const SidebarLayout = {
+export const ReadOnlyView = {
+  render: (args) => ({
+    components: {
+      SidebarLayoutComponent,
+      SingleUserView,
+    },
+    setup() {
+
+      const currentUser = {
+        avatar: {
+          url: 'https://picsum.photos/400/600',
+          alt: 'Demo image',
+        },
+        name: 'John Doe',
+        gender: 'Male',
+        birthday: new Date(),
+        nationality: 'United States',
+        address: 'Mary 123 Street 4th',
+        phone_number: '+13120456789',
+        city: 'Los Angeles',
+        state: 'Los Angeles',
+        role: 'User',
+        email: 'foo@bar.com',
+        description: 'Welcome to my profile!',
+      };
+      
+      return {
+        ...args,
+        currentUser,
+      };
+    },
+    template: `
+      <sidebar-layout-component @toggle-sidebar="onToggleSidebar" :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links">
+        <SingleUserView :user="currentUser"/>
+      </sidebar-layout-component>`,
+  }),
+};
+
+export const JustSidebar = {
 };

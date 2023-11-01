@@ -17,7 +17,7 @@ import Sidebar from './stories/molecules/Sidebar/Sidebar.vue';
 import UserAvatar from './stories/molecules/UserAvatar/UserAvatar.vue';
 
 import View from './stories/organisms/View/View.vue';
-import UserEditView from './stories/organisms/UserEditView/UserEditView.vue';
+import UserEditView from './stories/organisms/SingleUserEditView/UserEditView.vue';
 import UsersView from './stories/organisms/UsersView/UsersView.vue';
 
 import SidebarLayout from './stories/templates/BasicWithSidebar/SidebarLayout.vue';

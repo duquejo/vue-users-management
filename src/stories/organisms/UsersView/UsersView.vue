@@ -18,7 +18,7 @@
               @click="formDeleteClick(selectedUsers)"
             />
             <Button
-              v-if="selectedUsers.length > 0"
+              v-if="selectedUsers.length === 1"
               :label="`Edit user ${usersCount}`"
               size="small"
               @click="formEditClick(selectedUsers)"
@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="users-container__list">
-          <List :users="users" @select-user="onSelectUser" />
+          <List :users="users" @select-user="onSelectUser" @on-profile-click="onProfileClick"/>
         </div>
         <div class="users-container__pagination">
           <Pagination :links="paginationLinks"/>
@@ -64,8 +64,8 @@ const emit = defineEmits([
   'onFormDelete',
   'onFormEdit',
   'onFormSearch',
+  'onProfileClick',
 ]);
-
 
 const formCreateClick = () => {
   emit('onFormCreate');
@@ -78,6 +78,10 @@ const formDeleteClick = () => {
 const formEditClick = () => {
   emit('onFormEdit', selectedUsers.value);
 };
+
+const onProfileClick = (id) => {
+  emit('onProfileClick', id);
+}
 
 const onSelectUser = (users) => {
   selectedUsers.value = users;

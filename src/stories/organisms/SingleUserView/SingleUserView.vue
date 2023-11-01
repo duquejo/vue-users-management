@@ -5,7 +5,7 @@
         <div class="grid-content__user-details">
           <div>
             <h5>Personal details</h5>
-            <UserAvatar class="m-auto mb-4 md:mb-auto" :url="avatar?.url" :alt="avatar?.alt" />
+            <UserAvatar readonly class="m-auto mb-4 md:mb-auto" :url="user?.avatar?.url" :alt="user?.avatar?.alt" />
           </div>
           <div v-if="user.name || user.gender || user.nationality || user.birthday">
             <ul>
@@ -70,10 +70,6 @@
           <div>
             <h5>Profile Description</h5>
             <p>{{ user.description || 'No description added' }}</p>
-          </div>
-          <div class="grid-content__user-description__buttons">
-            <Button label="Save" primary size="large" />
-            <Button label="Cancel" size="large" />
           </div>
         </div>
       </div>

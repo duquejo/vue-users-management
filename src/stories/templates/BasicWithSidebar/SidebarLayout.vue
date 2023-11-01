@@ -3,7 +3,7 @@
     <SidebarComponent :links="links" :user="user" :is-open="isSidebarOpen" />
     <div class="container-outline">
       <div class="bg-white dark:bg-secondary-900 rounded-tl-2xl rounded-tr-2xl">
-        <UpperNav />
+        <UpperNav :is-active="topNavigation.active" :back-url="topNavigation.backUrl"/>
       </div>
       <div class="container-main">
         <slot></slot>
@@ -32,6 +32,13 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  topNavigation: {
+    type: Object,
+    default: () => ({
+      backUrl: '',
+      active: true,
+    }),
+  }
 });
 
 const emit = defineEmits(['toggleSidebar']);

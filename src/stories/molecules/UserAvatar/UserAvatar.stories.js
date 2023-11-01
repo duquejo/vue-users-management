@@ -5,8 +5,15 @@ export default {
   title: 'Components/Molecules/User avatar',
   component: UserAvatarComponent,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export const UserAvatar = {
-  args: {},
+  args: {
+    url: 'https://picsum.photos/300/500',
+    alt: 'Demo avatar',
+    readonly: true,
+  },
 };

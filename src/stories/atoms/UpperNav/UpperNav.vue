@@ -1,18 +1,28 @@
 <template>
-  <nav>
+  <nav v-if="isActive">
     <div>
       <Icon model="chevronLeft" size="small"/>
-      <a class="group" href="#">Back <span class="group-hover:max-w-full"/></a>
+      <a class="group" :href="backUrl">Back <span class="group-hover:max-w-full"/></a>
     </div>
   </nav>
+  <div v-else class="nav-gap"></div>
 </template>
 
 <script setup>
 import Icon from '../../atoms/Icon/Icon.vue';
+
+defineProps({
+  backUrl: String,
+  isActive: {
+    type: Boolean,
+    default: true,
+  }
+});
+
 </script>
 
 <style lang="postcss" scoped>
-nav {
+nav, .nav-gap {
   @apply flex justify-between p-5 font-bold dark:text-secondary-200;
   div {
     @apply inline-flex cursor-pointer;

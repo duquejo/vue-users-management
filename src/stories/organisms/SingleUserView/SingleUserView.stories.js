@@ -1,9 +1,9 @@
-import UserEditViewComponent from './UserEditView.vue';
+import SingleUserViewComponent from './SingleUserView.vue';
 
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 export default {
-  title: 'Components/Organisms/Single User View',
-  component: UserEditViewComponent,
+  title: 'Components/Organisms/Single user view',
+  component: SingleUserViewComponent,
   tags: ['autodocs'],
   argTypes: {
     onFormSubmit: {},
@@ -25,6 +25,7 @@ export const AllUserArgs = {
       birthday: new Date(),
       nationality: 'United States',
       address: 'Mary 123 Street 4th',
+      country: 'United States',
       phone_number: '+13120456789',
       city: 'Los Angeles',
       state: 'Los Angeles',
@@ -35,7 +36,7 @@ export const AllUserArgs = {
   },
   render: (args) => ({
     components: {
-      UserEditViewComponent,
+      SingleUserViewComponent,
     },
     setup() {
       return {
@@ -43,15 +44,9 @@ export const AllUserArgs = {
       };
     },
     template: `
-      <user-edit-view-component 
+      <single-user-view-component 
         :user="user"
         @on-form-submit="onFormSubmit"
       />`,
   }),
-};
-
-export const NoUserArgs = {
-  args: {
-    user: {}
-  }
 };

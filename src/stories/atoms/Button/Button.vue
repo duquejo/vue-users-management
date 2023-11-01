@@ -1,5 +1,5 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">
+  <button :type="role" :class="classes" @click="onClick" :style="style" >
     {{ label }}
   </button>
 </template>
@@ -26,6 +26,10 @@ const properties = defineProps({
   backgroundColor: {
     type: String,
   },
+  role: {
+    type: String,
+    default: 'button'
+  }
 });
 
 const props = reactive(properties);

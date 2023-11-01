@@ -32,7 +32,7 @@ const props = defineProps({
 
 const sidebarClasses = computed(() => ({
   'sidebar-container': true,
-  'open': props.isOpen,
+  'open': !! props.isOpen,
 }));
 </script>
 

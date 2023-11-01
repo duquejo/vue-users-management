@@ -40,9 +40,7 @@ const props = defineProps({
 const isLoaded = ref(false);
 
 const onLoadImage = () => {
-  setTimeout(() => {
-    isLoaded.value = true;
-  }, 1000);
+  isLoaded.value = true;
 };
 </script>
 
@@ -50,7 +48,7 @@ const onLoadImage = () => {
 .avatar {
   @apply text-secondary-400 relative rounded-2xl;
   img{
-    @apply object-cover w-full transition-all duration-700 hover:scale-110 h-full rounded-2xl;
+    @apply object-cover w-full transition-all duration-700 h-full rounded-2xl hover:scale-110 z-10;
   }
   .avatar-skeleton {
     @apply rounded-2xl absolute bg-white dark:bg-black top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center transition-opacity duration-500;

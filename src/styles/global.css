@@ -28,7 +28,7 @@
 
   html,
   body {
-    @apply font-poppins bg-secondary-100 dark:bg-secondary-950 dark:text-secondary-300;
+    @apply font-poppins bg-secondary-100 dark:bg-secondary-950 dark:text-secondary-300 selection:bg-secondary-200;
   }
   h1 {
     @apply text-primary-800 dark:text-primary-500 text-4xl font-black;

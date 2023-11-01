@@ -8,4 +8,15 @@ export default {
 };
 
 export const UpperNav = {
+  args: {
+    backUrl: '#',
+    isActive: true,
+  }
+};
+
+export const DisabledUpperNav = {
+  args: {
+    backUrl: '#',
+    isActive: false,
+  }
 };

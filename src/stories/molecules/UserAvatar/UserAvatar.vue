@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <Avatar class="shadow-xl" :src="url" :alt="alt"/>
-    <Button :primary="false" label="Edit avatar"/>
+    <Button v-if="! readonly" :primary="false" label="Edit avatar"/>
   </div>
 </template>
 
@@ -10,11 +10,9 @@ import Avatar from '../../atoms/Avatar/Avatar.vue';
 import Button from '../../atoms/Button/Button.vue';
 
 defineProps({
-  url: {
-    type: String,
-    default: 'https://picsum.photos/300/500',
-  },
+  url: String,
   alt: String,
+  readonly: Boolean,
 });
 </script>
 

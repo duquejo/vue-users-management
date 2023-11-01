@@ -16,6 +16,7 @@ import {
   WindowIcon,
   XMarkIcon,
   PhotoIcon,
+  EyeIcon,
 } from '@heroicons/vue/24/outline';
 
 import { computed } from 'vue';
@@ -63,5 +64,6 @@ const icons = {
   search: MagnifyingGlassIcon,
   settings: Cog8ToothIcon,
   photo: PhotoIcon,
+  eye: EyeIcon,
 };
 </script>

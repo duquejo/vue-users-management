@@ -11,6 +11,9 @@ export const Sidebar = {
   args: {
     isOpen: true,
     user: {
+      name: 'John Doe',
+      role: 'Editor',
+      avatarUrl: 'https://placehold.co/100x100',
       profileUrl: '/profile',
       logoutUrl: '/logout',
     },
