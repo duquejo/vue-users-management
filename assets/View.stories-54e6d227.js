@@ -1,0 +1,2 @@
+import{V as t}from"./View-28e72860.js";import"./vue.esm-bundler-ab224c85.js";import"./_plugin-vue_export-helper-c27b6911.js";const n={title:"Components/Organisms/View",component:t,tags:["autodocs"],parameters:{layout:"centered"}},e={};var r,o,s;e.parameters={...e.parameters,docs:{...(r=e.parameters)==null?void 0:r.docs,source:{originalSource:"{}",...(s=(o=e.parameters)==null?void 0:o.docs)==null?void 0:s.source}}};const c=["GeneralView"];export{e as GeneralView,c as __namedExportsOrder,n as default};
+//# sourceMappingURL=View.stories-54e6d227.js.map
