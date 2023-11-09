@@ -99,8 +99,8 @@
                 <p>
                   <select id="role" v-model="formInputs.role">
                     <option disabled value="">Select role</option>
-                    <option value="User">User</option>
-                    <option value="Editor">Editor</option>
+                    <option value="user">User</option>
+                    <option value="editor">Editor</option>
                   </select>
                 </p>
               </li>
@@ -116,7 +116,6 @@
           </div>
           <div class="grid-content__user-description__buttons">
             <Button label="Save" primary role="submit" />
-            <Button label="Reset" @click="onResetForm" />
             <Button label="Cancel" @click="onCancelSubmit" />
           </div>
         </div>
@@ -144,7 +143,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(['on-cancel-submit', 'on-submit-form', 'on-reset-form']);
+const emit = defineEmits(['on-cancel-submit', 'on-submit-form']);
 
 const formInputs = ref({
   name: props.user.name || '',
@@ -172,10 +171,6 @@ const onSubmitForm = () => {
 
 const onCancelSubmit = () => {
   emit('on-cancel-submit');
-}
-
-const onResetForm = () => {
-  emit('on-reset-form');
 }
 </script>
 

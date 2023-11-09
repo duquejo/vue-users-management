@@ -8,7 +8,6 @@ export default {
   argTypes: {
     onSubmitForm: {},
     onCancelSubmit: {},
-    onResetForm: {},
     formType: {
       control: {
         type: 'select',
@@ -31,7 +30,6 @@ export default {
         :formType="formType"
         @on-cancel-submit="onCancelSubmit"
         @on-submit-form="onSubmitForm"
-        @on-reset-form="onResetForm"
       />`,
   }),
   parameters: {
@@ -56,7 +54,7 @@ export const EditForm = {
       city: 'Los Angeles',
       state: 'Los Angeles',
       country: 'United States',
-      role: 'User',
+      role: 'user',
       email: 'foo@bar.com',
       description: 'Welcome to my profile!',
     },
