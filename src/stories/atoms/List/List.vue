@@ -1,4 +1,6 @@
 <template>
+  {{  isAllChecked }}
+  {{ selectedCell }}
   <table>
     <thead>
       <tr>
@@ -15,10 +17,10 @@
     </thead>
     <tbody>
       <tr v-if="users.length > 0" v-for="user in users" :key="user.id" :class="{
-        selected: selectedCell?.some((sCell) => sCell.id === user.id),
+        selected: verifyChecked(user),
       }">
         <td>
-          <input type="checkbox" :checked="selectedCell?.some((sCell) => sCell.id === user.id)"
+          <input type="checkbox" :checked="verifyChecked(user)"
             @click="onSingleSelect(user)" :title="`Click to select ${user.name}`" />
         </td>
         <td><img :src="image" />{{ user.name }}</td>
@@ -63,35 +65,39 @@ const isAllChecked = ref(false);
 
 const onSingleSelect = (user) => {
   if (isAllChecked.value) {
-    selectedCell.value = [];
     isAllChecked.value = false;
   }
-  if (
-    selectedCell.value.length > 0 &&
-    selectedCell.value.some((sCell) => sCell.id === user.id)
-  ) {
-    emit('select-user', []);
-    return (selectedCell.value = []);
+
+  const index = selectedCell.value.indexOf(user);
+  if( index === -1 ) {
+    selectedCell.value.push(user);
+  } else {
+    selectedCell.value.splice(index, 1);
   }
-  emit('select-user', [user]);
-  selectedCell.value = [user];
+  emit('select-user', selectedCell.value);
 };
 
 const onAllSelect = () => {
   if (isAllChecked.value) {
     isAllChecked.value = false;
     selectedCell.value = [];
-    emit('select-user', []);
+    emit('select-user', selectedCell.value);
     return;
   }
+
+  const users = [...props.users];
   isAllChecked.value = true;
-  selectedCell.value = props.users;
-  emit('select-user', props.users);
+  selectedCell.value = users;
+  emit('select-user', selectedCell.value);
 };
 
 const onProfileClick = (id) => {
   emit('on-profile-click', id);
 };
+
+const verifyChecked = (user) => {
+  return selectedCell.value.some( u => u.id === user.id );
+}
 </script>
 
 <style lang="postcss" scoped>

@@ -19,7 +19,7 @@ const properties = defineProps({
   size: {
     type: String,
     default: 'medium',
-    validator: function (value) {
+    validator: value => {
       return ['small', 'medium', 'large'].indexOf(value) !== -1;
     },
   },

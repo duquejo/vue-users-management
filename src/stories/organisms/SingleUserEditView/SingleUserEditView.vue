@@ -13,7 +13,7 @@
                 <label for="name">
                   <h6>Name</h6>
                 </label>
-                <p><input id="name" type="text" v-model="formInputs.name" /></p>
+                <p><input id="name" type="text" v-model="formInputs.name" placeholder="John Doe"/></p>
               </li>
               <li>
                 <label for="gender">
@@ -21,7 +21,7 @@
                 </label>
                 <p>
                   <select id="gender" v-model="formInputs.gender">
-                    <option disabled value="">Select one</option>
+                    <option disabled value="">Select gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Other">Other</option>
@@ -32,13 +32,13 @@
                 <label for="nationality">
                   <h6>Nationality</h6>
                 </label>
-                <p><input id="nationality" type="text" v-model="formInputs.nationality" /></p>
+                <p><input id="nationality" type="text" v-model="formInputs.nationality" placeholder="Canadian" /></p>
               </li>
               <li>
                 <label for="birthdate">
                   <h6>Birth date</h6>
                 </label>
-                <p><input id="birthdate" type="text" v-model="formInputs.birthday" /></p>
+                <p><input id="birthdate" type="date" v-model="formInputs.birthday" placeholder="1986-08-01"/></p>
               </li>
             </ul>
           </div>
@@ -49,25 +49,25 @@
                 <label for="address">
                   <h6>Address line</h6>
                 </label>
-                <p><input id="address" type="text" v-model="formInputs.address" /></p>
+                <p><input id="address" type="text" v-model="formInputs.address" placeholder="Wannabe 42 Sydney Street"/></p>
               </li>
               <li>
                 <label for="city">
                   <h6>City</h6>
                 </label>
-                <p><input id="city" type="text" v-model="formInputs.city" /></p>
+                <p><input id="city" type="text" v-model="formInputs.city" placeholder="Bosnia" /></p>
               </li>
               <li>
                 <label for="state">
                   <h6>State</h6>
                 </label>
-                <p><input id="state" type="text" v-model="formInputs.state" /></p>
+                <p><input id="state" type="text" v-model="formInputs.state" placeholder="Cambodia"/></p>
               </li>
               <li>
                 <label for="country">
                   <h6>Country</h6>
                 </label>
-                <p><input id="country" type="text" v-model="formInputs.country" /></p>
+                <p><input id="country" type="text" v-model="formInputs.country" placeholder="Cameroon"/></p>
               </li>
             </ul>
           </div>
@@ -78,17 +78,31 @@
                 <label for="email">
                   <h6>Email</h6>
                 </label>
-                <p><input id="email" type="email" v-model="formInputs.email" /></p>
+                <p><input id="email" type="email" v-model="formInputs.email" placeholder="john@foo.com"/></p>
+              </li>
+              <li>
+                <label for="password">
+                  <h6>Password</h6>
+                </label>
+                <p><input id="password" type="password" v-model="formInputs.password" placeholder="**************" /></p>
               </li>
               <li>
                 <label for="phone_number">
                   <h6>Phone number</h6>
                 </label>
-                <p><input id="phone_number" type="tel" v-model="formInputs.phone_number" /></p>
+                <p><input id="phone_number" type="tel" v-model="formInputs.phone_number" placeholder="+525109876532"/></p>
               </li>
               <li>
-                <h6>Role</h6>
-                <p class="font-bold">{{ user.role }} <span class="tier">Current</span></p>
+                <label for="role">
+                  <h6>Role <p class="ml-2 font-bold text-sm inline text-secondary-950">{{ formInputs.role || 'Select one' }} <span class="tier">Current</span></p></h6>
+                </label>
+                <p>
+                  <select id="role" v-model="formInputs.role">
+                    <option disabled value="">Select role</option>
+                    <option value="User">User</option>
+                    <option value="Editor">Editor</option>
+                  </select>
+                </p>
               </li>
             </ul>
           </div>
@@ -98,11 +112,12 @@
             <label for="description">
               <h6>Profile Description</h6>
             </label>
-            <p><textarea id="description" cols="30" rows="10">{{ formInputs.description }}</textarea></p>
+            <p><textarea id="description" cols="30" rows="10" v-model="formInputs.description" /></p>
           </div>
           <div class="grid-content__user-description__buttons">
             <Button label="Save" primary role="submit" />
-            <Button label="Cancel" @click="onCancelSubmit"/>
+            <Button label="Reset" @click="onResetForm" />
+            <Button label="Cancel" @click="onCancelSubmit" />
           </div>
         </div>
       </form>
@@ -118,26 +133,37 @@ import UserAvatar from '../../molecules/UserAvatar/UserAvatar.vue';
 const props = defineProps({
   user: {
     type: Object,
-    required: true,
+    default: () => ({}),
+  },
+  formType: {
+    type: String,
+    default: 'edit',
+    validator: value => {
+      return ['edit', 'create'].indexOf(value) !== -1;
+    }
   },
 });
 
-const emit = defineEmits(['on-cancel-submit', 'on-submit-form']);
+const emit = defineEmits(['on-cancel-submit', 'on-submit-form', 'on-reset-form']);
 
 const formInputs = ref({
-  name: props.user.name,
-  gender: props.user.gender,
-  birthday: props.user.birthday,
-  nationality: props.user.nationality,
-  address: props.user.address,
-  phone_number: props.user.phone_number,
-  city: props.user.city,
-  state: props.user.state,
-  country: props.user.country,
-  role: props.user.role,
-  email: props.user.email,
-  description: props.user.description,
-  avatar: props.user.avatar,
+  name: props.user.name || '',
+  gender: props.user.gender || '',
+  birthday: props.user.birthday || '',
+  nationality: props.user.nationality || '',
+  address: props.user.address || '',
+  phone_number: props.user.phone_number || '',
+  city: props.user.city || '',
+  state: props.user.state || '',
+  country: props.user.country || '',
+  role: props.user.role || '',
+  email: props.user.email || '',
+  description: props.user.description || '',
+  avatar: props.user.avatar || {
+    url: 'https://placehold.co/400x600',
+    alt: '',
+  },
+  password: '',
 });
 
 const onSubmitForm = () => {
@@ -146,6 +172,10 @@ const onSubmitForm = () => {
 
 const onCancelSubmit = () => {
   emit('on-cancel-submit');
+}
+
+const onResetForm = () => {
+  emit('on-reset-form');
 }
 </script>
 
@@ -181,13 +211,14 @@ const onCancelSubmit = () => {
     }
 
     &__user-description {
-      @apply grid md:grid-cols-1 h-full content-between text-justify md:mt-9;
+      @apply grid md:grid-cols-1 h-full content-start text-justify md:mt-9;
 
       &__buttons {
-        @apply inline-flex gap-4 justify-center my-0 md:my-5;
+        @apply inline-flex gap-2 justify-center mt-2 md:my-5;
       }
     }
   }
+
   h5 {
     @apply text-primary-700 mb-2 md:mt-0 border-t md:border-none pt-3 md:pt-0;
   }
@@ -205,7 +236,6 @@ textarea {
 
 select {
   option {
-
     &:checked,
     &:hover {
       @apply bg-primary-600 text-white;

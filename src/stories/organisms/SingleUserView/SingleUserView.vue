@@ -78,7 +78,6 @@
 </template>
 
 <script setup>
-import Button from '../../atoms/Button/Button.vue';
 import UserAvatar from '../../molecules/UserAvatar/UserAvatar.vue';
 
 defineProps({

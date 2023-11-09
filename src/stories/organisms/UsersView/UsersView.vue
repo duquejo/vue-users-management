@@ -76,7 +76,7 @@ const formDeleteClick = () => {
 };
 
 const formEditClick = () => {
-  emit('onFormEdit', selectedUsers.value);
+  emit('onFormEdit', selectedUsers.value[0]);
 };
 
 const onProfileClick = (id) => {

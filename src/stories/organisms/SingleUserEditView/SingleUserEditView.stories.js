@@ -8,8 +8,40 @@ export default {
   argTypes: {
     onSubmitForm: {},
     onCancelSubmit: {},
+    onResetForm: {},
+    formType: {
+      control: {
+        type: 'select',
+      },
+      options: ['edit', 'create'],
+    },
   },
+  render: (args) => ({
+    components: {
+      SingleUserEditViewComponent,
+    },
+    setup() {
+      return {
+        ...args,
+      };
+    },
+    template: `
+      <single-user-edit-view-component 
+        :user="user"
+        :formType="formType"
+        @on-cancel-submit="onCancelSubmit"
+        @on-submit-form="onSubmitForm"
+        @on-reset-form="onResetForm"
+      />`,
+  }),
+  parameters: {
+    layout: 'centered',
+  },
+};
+
+export const EditForm = {
   args: {
+  formType: 'edit',
     user: {
       avatar: {
         url: 'https://picsum.photos/400/600',
@@ -29,25 +61,10 @@ export default {
       description: 'Welcome to my profile!',
     },
   },
-  render: (args) => ({
-    components: {
-      SingleUserEditViewComponent,
-    },
-    setup() {
-      return {
-        ...args,
-      };
-    },
-    template: `
-      <single-user-edit-view-component 
-        :user="user"
-        @on-cancel-submit="onCancelSubmit"
-        @on-submit-form="onSubmitForm"
-      />`,
-  }),
-  parameters: {
-    layout: 'centered',
-  },
 };
 
-export const AllArgs = {};
+export const CreateForm = {
+  args: {
+    formType: 'create',
+  }
+}

@@ -79,12 +79,33 @@ export const AllUsers = {
       UsersView,
     },
     setup() {
+
+      const users = [
+        {
+          id: 1,
+          name: 'Anna George',
+          email: 'anna@demo.com',
+          phone_number: '+573101231212',
+          role: 'admin',
+          created_at: '2023/10/23',
+        },
+        {
+          id: 2,
+          name: 'Albert Flores 2',
+          email: 'albert2@demo.com',
+          phone_number: '+573101234567',
+          role: 'user',
+          created_at: '20 minutes ago',
+        },
+      ];
+
       return {
         ...args,
+        users,
       };
     },
     template: `
-      <sidebar-layout-component @toggle-sidebar="onToggleSidebar" :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><UsersView /></sidebar-layout-component>`,
+      <sidebar-layout-component @toggle-sidebar="onToggleSidebar" :user="user" v-model:isSidebarOpen="isSidebarOpen" :links="links"><UsersView :users="users" /></sidebar-layout-component>`,
   }),
 };
 
