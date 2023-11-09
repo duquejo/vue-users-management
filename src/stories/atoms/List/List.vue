@@ -1,6 +1,4 @@
 <template>
-  {{  isAllChecked }}
-  {{ selectedCell }}
   <table>
     <thead>
       <tr>
