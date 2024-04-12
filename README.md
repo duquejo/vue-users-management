@@ -8,4 +8,4 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 ## Realtime - Storybook with all components definition
 
-[https://duquejo01.github.io/vue-users-management/](https://duquejo01.github.io/vue-users-management/)
+[https://duquejo01.github.io/vue-users-management/](https://duquejo01.github.io/vue-users-management)
